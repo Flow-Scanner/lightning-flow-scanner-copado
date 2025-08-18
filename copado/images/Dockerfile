@@ -1,6 +1,19 @@
 FROM salesforce/cli:latest-full
 
-RUN apt-get update && apt-get -y install python3 python3-requests && rm -rf /var/lib/apt/lists/*
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install --assume-yes openjdk-17-jdk-headless jq python3 python3-requests
+RUN apt-get autoremove --assume-yes \
+    && apt-get clean --assume-yes \
+    && rm -rf /var/lib/apt/lists/*
+
+ENV SF_CONTAINER_MODE true
+ENV SFDX_CONTAINER_MODE true
+ENV DEBIAN_FRONTEND=dialog
+ENV SHELL /bin/bash
+
+#RUN  mkdir -p /app /home/heroku && chown heroku:heroku /app /home/heroku
+#USER heroku:heroku
 
 USER root
 RUN usermod -l func heroku && \
@@ -10,8 +23,7 @@ RUN usermod -l func heroku && \
 
 USER func:func
 
-RUN echo y | sf plugins install lightning-flow-scanner
-RUN echo y | sfdx plugins:install sfdx-git-delta@v5.45.0
+RUN echo y | sf plugins install lightning-flow-scanner@v3.29.0 sfdx-git-delta@v6.16.0
 
 ENV SFDX_DISABLE_AUTOUPDATE=true \
     SFDX_DISABLE_TELEMETRY=true \
