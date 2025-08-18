@@ -1,21 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <actionCalls>
-        <name>log_call</name>
-        <label>log call</label>
-        <locationX>176</locationX>
-        <locationY>134</locationY>
-        <actionName>LogACall</actionName>
-        <actionType>quickAction</actionType>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
-        <nameSegment>LogACall</nameSegment>
-        <versionSegment>1</versionSegment>
-    </actionCalls>
-    <apiVersion>58.0</apiVersion>
-    <description>This flow demonstrates a violation of the rule &quot;Missing Error Handler&quot;.</description>
+    <apiVersion>62.0</apiVersion>
+    <description>test</description>
     <environments>Default</environments>
-    <interviewLabel>Missing Error Handler {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>Missing Error Handler</label>
+    <interviewLabel>Test Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Test Flow</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -35,12 +24,29 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>test</description>
+        <name>Update_triggering_records</name>
+        <label>Update triggering records</label>
+        <locationX>176</locationX>
+        <locationY>287</locationY>
+        <inputAssignments>
+            <field>Active__c</field>
+            <value>
+                <stringValue>Yes</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
     <start>
         <locationX>50</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>log_call</targetReference>
+            <targetReference>Update_triggering_records</targetReference>
         </connector>
+        <object>Account</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
     </start>
     <status>Active</status>
     <triggerOrder>10</triggerOrder>

@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <apiVersion>51.0</apiVersion>
-    <description>This flow demonstrates how to resolve a violation of the rule &quot;Copy API Name&quot;.</description>
+    <apiVersion>63.0</apiVersion>
     <environments>Default</environments>
-    <interviewLabel>Fix: Copy API Name {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>Fix: Copy API Name</label>
+    <formulas>
+        <name>HardcodedURL</name>
+        <dataType>String</dataType>
+        <expression>&quot;https://mydomain.sandbox.my.salesforce.com/&quot;&amp;{!$User.Id}</expression>
+    </formulas>
+    <interviewLabel>HardcodedUrl {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>HardcodedUrl</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -25,27 +29,18 @@
     </processMetadataValues>
     <processType>Flow</processType>
     <screens>
-        <name>mockscreen</name>
-        <label>mockscreen</label>
+        <name>Flow_hardoced_url</name>
+        <label>Flow hardoced url</label>
         <locationX>176</locationX>
         <locationY>134</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
-        <connector>
-            <targetReference>second_mockscreen</targetReference>
-        </connector>
-        <showFooter>true</showFooter>
-        <showHeader>true</showHeader>
-    </screens>
-    <screens>
-        <name>second_mockscreen</name>
-        <label>second mockscreen</label>
-        <locationX>176</locationX>
-        <locationY>242</locationY>
-        <allowBack>true</allowBack>
-        <allowFinish>true</allowFinish>
-        <allowPause>true</allowPause>
+        <fields>
+            <name>FlowHardcodedUrl</name>
+            <fieldText>&lt;p&gt;{!HardcodedURL}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
     </screens>
@@ -53,8 +48,18 @@
         <locationX>50</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>mockscreen</targetReference>
+            <targetReference>Flow_hardoced_url</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
+    <variables>
+        <name>HardcodedFlowVariable</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>https://mydomain.sanbox.my.salesforce.com</stringValue>
+        </value>
+    </variables>
 </Flow>

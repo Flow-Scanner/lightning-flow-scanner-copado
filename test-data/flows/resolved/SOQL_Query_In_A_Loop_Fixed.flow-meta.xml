@@ -31,8 +31,7 @@
             <label>notnull</label>
         </rules>
     </decisions>
-    <description>This flow demonstrates how to resolve a violation of the rule &quot;SOQL Query In A
-        Loop&quot;.</description>
+    <description>This flow demonstrates how to resolve a violation of the rule &quot;SOQL Query In A Loop&quot;.</description>
     <environments>Default</environments>
     <interviewLabel>Fix: SOQL Query In A Loop {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Fix: SOQL Query In A Loop</label>
@@ -79,7 +78,14 @@
         <faultConnector>
             <targetReference>dosomethingelse</targetReference>
         </faultConnector>
-
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Industry</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>None</stringValue>
+            </value>
+        </filters>
         <getFirstRecordOnly>true</getFirstRecordOnly>
         <object>Account</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
