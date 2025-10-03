@@ -20,7 +20,7 @@
 
 ## Usage
 
-Copado Flow Scanner is a plugin to boost your Salesforce deployments by integrating Lightning Flow Scanner as a Quality Gate within Copado, to analyze updated Flows in your User Story, ensuring top-notch quality before every deployment. View comprehensive results directly within Copado for streamlined, confident releases. For more information on the default rule set available and configuration abilities, please review the[ flow scanner documentation](https://flow-scanner.github.io/lightning-flow-scanner-core/).
+Copado Flow Scanner is a plugin to boost your Salesforce deployments by integrating Lightning Flow Scanner as a Quality Gate within Copado, to analyze updated Flows in your User Story, ensuring top-notch quality before every deployment. View comprehensive results directly within Copado for streamlined, confident releases. For more information on the default rules and configurations available, please review the[ flow scanner documentation](https://flow-scanner.github.io/lightning-flow-scanner-core/).
 
 ##### Pre-Requisites
 
@@ -70,4 +70,4 @@ Once saved, press the “Activate” button on the Quality Gate Rule record. To 
 
 **You are all set.** To test the configuration, just perform a commit, and the Commit Action will call `Flow Scanner` after every commit.
 
-If you'd like to help us enhance Flow Scanner, please consider having a look at our [Contributing Guidelines](https://github.com/Flow-Scanner/lightning-flow-scanner-core/blob/main/CONTRIBUTING.md).
+If you'd like to help us enhance Flow Scanner, please consider having a look at the [Contributing Guidelines](https://github.com/Flow-Scanner/lightning-flow-scanner-core/blob/main/CONTRIBUTING.md).
