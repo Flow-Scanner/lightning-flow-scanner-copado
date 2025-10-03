@@ -1,86 +1,73 @@
-# Use Lightining Flow Scanner as a quality gate within Copado
-Run it on the changed/updated components in your Copado User Story or enforce it before every deployment. All results are available within the Test and Result objects.
+<p align="center">
+  <a href="https://github.com/Flow-Scanner">
+    <img src="https://raw.githubusercontent.com/Flow-Scanner/lightning-flow-scanner-core/main/media/bannerslim.png" style="width: 55%;" />
+  </a>
+</p>
+<p align="center">Scans for unsafe contexts, hardcoded IDs, and other issues to optimize your Flows.</p>
 
-**Q: What is Lightining Flow Scanner?**
+![FlowScan example](https://raw.githubusercontent.com/Flow-Scanner/lightning-flow-scanner-copado/main/assets/Copado-LFS.gif)
 
-Lightning Flow Scanner is a free and open-source SFDX Plugin that can perform static analysis on Salesforce Flows, Process Builders and Workflows to identify violations of industry best practices. Please [read more about the original sfdx plugin here.](https://github.com/Lightning-Flow-Scanner/lightning-flow-scanner-sfdx)
+###### [Watch the full Flow Scanner Demo](https://www.loom.com/share/d5fc87459e714e94b72abcd5511be5d8)
 
-## Rule overview
-Read all the latest rules that are supported [here, in the core repo](https://lightning-flow-scanner.github.io/lightning-flow-scanner-core/#default-rules)
+- [Usage](#usage)
+- [Installation](#installation)
+- [Configuration](#configuration)
 
-# Installing the Extension
+  - [Defining the severity per rule](#defining-the-severity-per-rule)
+  - [Specifying an exception](#specifying-an-exception)
+  - [Configuring an expression](#configuring-an-expression)
+- [Contribution Guidelines](#contribution-guidelines)
 
-## Pre-Requisites
-* Install Copado v21.14 or higher
-* Install Copado Quality Tools extension v1.42 or higher
-* Install the [latest version of Copado Flow Scanner](https://success.copado.com/s/listing-detail?recordId=a54P7000003G3gBIAS) from Copado's DevOps Exchange by clicking the `Get It Now` button.
+## Usage
 
-## Picklist Values
+Copado Flow Scanner is a plugin to boost your Salesforce deployments by integrating Lightning Flow Scanner as a Quality Gate within Copado, to analyze updated Flows in your User Story, ensuring top-notch quality before every deployment. View comprehensive results directly within Copado for streamlined, confident releases. For more information on the default rule set available and configuration abilities, please review the[ flow scanner documentation](https://flow-scanner.github.io/lightning-flow-scanner-core/).
+
+##### Pre-Requisites
+
+* Copado v21.14 or higher
+* Copado Quality Tools extension v1.42 or higher
+
+## Installation
+
+### Picklist Values
 
 Create the Following Picklist values
+
 * **Object: Extension Configuration** > Field: Extension Tool, Value: `flow-scanner`
 * **Picklist Value Set** > Copado Test Tool, Value: `flow-scanner`
 
-## Create The Functions and Job Templates
+### Create The Functions and Job Templates
+
 Navigate to the “Copado Extensions” tab, select “CopadoFlowScanner” and press the button “Generate Extension Records”.
 
 ![Generate Extension Records](./assets/images/generate-extension-records.png)
 
-## Configure Acceptance Criteria via a Function Parameter
+### Configure Acceptance Criteria via a Function Parameter
+
  ![Function Parameter](./assets/images/function-parameter.png)
 
 `fail_on` - This parameter can take one of three rule severity values - `error`, `note` or `warning`. The default value of it is `error`. This parameter decides when should the Quality Gate fail.
 
-  - Setting it to `error` means - Succeed the Quality Gate, if their are no violations or they are only of type `warning` or `note`. Fail on violations of severity `error`.
-  - Setting it to `warning` means - Succeed the Quality Gate, if their are no violations or they are only of type or `note`. Fail on violations of severity `error` or `warning`.
-  - Setting it to `note` means - Succeed the Quality Gate, if their are no violations. Fail on any violations irrespective of severity.
+- Setting it to `error` means - Succeed the Quality Gate, if their are no violations or they are only of type `warning` or `note`. Fail on violations of severity `error`.
+- Setting it to `warning` means - Succeed the Quality Gate, if their are no violations or they are only of type or `note`. Fail on violations of severity `error` or `warning`.
+- Setting it to `note` means - Succeed the Quality Gate, if their are no violations. Fail on any violations irrespective of severity.
 
-## How to set Severity of each rule?
-
-By default, all rules have a severity of `error`. If you need to customize individual rule severity, then, in the root of your repo you could create `.flow-scanner.json`. [Here's a sample file](./.flow-scanner.json)
-
-You can also configure `exceptions` for particular rules. [Read more details here.](https://github.com/Lightning-Flow-Scanner/lightning-flow-scanner-sfdx?tab=readme-ov-file#configuration)
+By default, all rules have a severity of `error`. To customize behaviour, check the [core documentation](https://flow-scanner.github.io/lightning-flow-scanner-core/) on how to create a  `.flow-scanner.json` configuration file.
 
 ## Configure the Quality Gate
 
 ### Create the Quality Gate Rule
+
 Navigate to the Quality Gate Rules tab and create a new record as follows. Note that the Type field will be populated automatically upon save. The global value set Test Tool should have a value for `Flow Scanner` as part of this package. It can be created manually if necessary.
 
 ![Configure Quality Gate](./assets/images/create-quality-gate-rule.png)
 
 ### Create the Quality Gate Rule Condition
+
 Set the conditions so that it only applies to `Pipelines/Stages/Environments` with Platform = `SFDX`. This picklist value can be added manually if necessary.
-Once saved, press the button “Activate” on the Quality Gate Rule record.
-To run Flow Scanner only when Flows are committed, add the Filter Logic as shown in the picture below.
+Once saved, press the “Activate” button on the Quality Gate Rule record. To run Flow Scanner only when Flows are committed, add Filter Logic as demonstrated below:
 ![Quality Gate Rule Condition](./assets/images/quality-gate-rule-condition.png)
 
-**You are all set.**
+**You are all set.** To test the configuration, just perform a commit, and the Commit Action will call `Flow Scanner` after every commit.
 
-To test the configuration, just perform a commit which contains Flows on a user story on a SFDX platform Pipeline, and the Commit Action will call `Flow Scanner` after every commit.
-
-Take a look at sample-test flows in the [test-data directory](./test-data/flows/).
-
-## Demo
-
-[Take a look at this recording to see how it works](https://www.loom.com/share/d5fc87459e714e94b72abcd5511be5d8)
-
-Here are some screencaps of how the results look.
-### Successful run with no violations and it's result
-![Successful Commit](./assets/images/successful-commit.png)
-![No Violations](./assets/images/no-violations.png)
-
-### Successful run with `warnings` and `note` type of violations and fail_on set to `error`
-![Success Note Warnings](./assets/images/note-warning.png)
-
-### Run with Violations
-![Failed Commit](./assets/images/failed-commit.png)
-![Violations Modal](./assets/images/violations-modal.png)
-
-The Result record can be further opened to read the violations better, as well as wrap text and search to filter violations.
-
-![Result Record](./assets/images/violations-result.png)
-
-![Wrapped Text](./assets/images/violations-wrapped-text.png)
-
-![Search](./assets/images/violations-search.png)
-
+If you'd like to help us enhance Flow Scanner, please consider having a look at our [Contributing Guidelines](https://github.com/Flow-Scanner/lightning-flow-scanner-core/blob/main/CONTRIBUTING.md).
