@@ -23,9 +23,11 @@
 Copado Flow Scanner is a plugin to boost your Salesforce deployments by integrating Lightning Flow Scanner as a Quality Gate within Copado, to analyze updated Flows in your User Story, ensuring top-notch quality before every deployment. View comprehensive results directly within Copado for streamlined, confident releases. For more information on the default rules and configurations available, please review the[ flow scanner documentation](https://flow-scanner.github.io/lightning-flow-scanner-core/).
 
 ##### Pre-Requisites
-
 * Copado v21.14 or higher
 * Copado Quality Tools extension v1.42 or higher
+
+##### Scanner Version
+* Lightning Flow Scanner Core v3.29.0
 
 ## Installation
 
