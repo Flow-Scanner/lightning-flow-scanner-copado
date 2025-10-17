@@ -16,11 +16,11 @@
   - [Configure Threshold Criteria](configure-threshold-criteria)
 - [Configuration](#configuration)
   - [Create a Quality Gate(Rule)](#create-the-quality-gate-rule)
-  - [Create a Quality Gate Condition](#create-the-quality-gate-rule-condition)
+  - [Create a Quality Gate(Condition)](#create-the-quality-gate-rule-condition)
 
 ## Usage
 
-A Copado Plugin for automated analysis and optimization of Salesforce Flow in User Stories. Scans metadata for 20+ issues such as hardcoded IDs, unsafe contexts, inefficient SOQL/DML operations, recursion risks, and missing fault handling. View comprehensive results directly within Copado for confident releases. For more information on the default rules and configurations available, please review the[ flow scanner documentation](https://flow-scanner.github.io/lightning-flow-scanner-core/). To watch the full Demo, [click here](https://www.loom.com/share/d5fc87459e714e94b72abcd5511be5d8)
+A Copado Plugin for automated analysis and optimization of Salesforce Flow in User Stories. Scans metadata for 20+ issues such as hardcoded IDs, unsafe contexts, inefficient SOQL/DML operations, recursion risks, and missing fault handling. View comprehensive results directly within Copado for confident releases. For more information on the default rules and configurations, please review the [flow scanner documentation](https://flow-scanner.github.io/lightning-flow-scanner-core/). To watch a full Demo, [click here](https://www.loom.com/share/d5fc87459e714e94b72abcd5511be5d8)
 
 ##### Pre-Requisites
 * Copado v21.14 or higher
