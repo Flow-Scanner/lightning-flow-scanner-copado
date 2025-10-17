@@ -5,22 +5,22 @@
 </p>
 <p align="center">Scans for unsafe contexts, hardcoded IDs, and other issues to optimize your Flows.</p>
 
-![FlowScan example](https://raw.githubusercontent.com/Flow-Scanner/lightning-flow-scanner-copado/main/assets/Copado-LFS.gif)
-
-###### [Watch the full Flow Scanner Demo](https://www.loom.com/share/d5fc87459e714e94b72abcd5511be5d8)
+<p align="center">
+<img src="https://raw.githubusercontent.com/Flow-Scanner/lightning-flow-scanner-copado/main/assets/Copado-LFS.gif" style="width: 88%;" />
+</p>
 
 - [Usage](#usage)
 - [Installation](#installation)
+  - [Set-up Picklist Values](set-up-picklist-values)
+  - [Create The Job Templates](create-the-job-templates)
+  - [Configure Threshold Criteria](configure-thresholds)
 - [Configuration](#configuration)
-
-  - [Defining the severity per rule](#defining-the-severity-per-rule)
-  - [Specifying an exception](#specifying-an-exception)
-  - [Configuring an expression](#configuring-an-expression)
-- [Contribution Guidelines](#contribution-guidelines)
+  - [Create a Quality Gate(Rule)](#create-the-quality-gate-rule)
+  - [Create a Quality Gate Condition](#create-the-quality-gate-rule-condition)
 
 ## Usage
 
-A Copado Plugin for automated analysis and optimization of Salesforce Flow in User Stories. Scans metadata for 20+ issues such as hardcoded IDs, unsafe contexts, inefficient SOQL/DML operations, recursion risks, and missing fault handling. View comprehensive results directly within Copado for confident releases. For more information on the default rules and configurations available, please review the[ flow scanner documentation](https://flow-scanner.github.io/lightning-flow-scanner-core/).
+A Copado Plugin for automated analysis and optimization of Salesforce Flow in User Stories. Scans metadata for 20+ issues such as hardcoded IDs, unsafe contexts, inefficient SOQL/DML operations, recursion risks, and missing fault handling. View comprehensive results directly within Copado for confident releases. For more information on the default rules and configurations available, please review the[ flow scanner documentation](https://flow-scanner.github.io/lightning-flow-scanner-core/). To watch the full Demo, [click here](https://www.loom.com/share/d5fc87459e714e94b72abcd5511be5d8)
 
 ##### Pre-Requisites
 * Copado v21.14 or higher
@@ -31,20 +31,20 @@ A Copado Plugin for automated analysis and optimization of Salesforce Flow in Us
 
 ## Installation
 
-### Picklist Values
+### Set-up Picklist Values
 
 Create the Following Picklist values
 
 * **Object: Extension Configuration** > Field: Extension Tool, Value: `flow-scanner`
 * **Picklist Value Set** > Copado Test Tool, Value: `flow-scanner`
 
-### Create The Functions and Job Templates
+### Create The Job Templates
 
 Navigate to the “Copado Extensions” tab, select “CopadoFlowScanner” and press the button “Generate Extension Records”.
 
 ![Generate Extension Records](./assets/images/generate-extension-records.png)
 
-### Configure Acceptance Criteria via a Function Parameter
+### Configure Threshold Criteria
 
  ![Function Parameter](./assets/images/function-parameter.png)
 
@@ -56,7 +56,7 @@ Navigate to the “Copado Extensions” tab, select “CopadoFlowScanner” and 
 
 By default, all rules have a severity of `error`. To customize behaviour, check the [core documentation](https://flow-scanner.github.io/lightning-flow-scanner-core/) on how to create a  `.flow-scanner.json` configuration file.
 
-## Configure the Quality Gate
+## Configuration
 
 ### Create the Quality Gate Rule
 
