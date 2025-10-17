@@ -13,7 +13,7 @@
 - [Installation](#installation)
   - [Set-up Picklist Values](set-up-picklist-values)
   - [Create The Job Templates](create-the-job-templates)
-  - [Configure Threshold Criteria](configure-thresholds)
+  - [Configure Threshold Criteria](configure-threshold-criteria)
 - [Configuration](#configuration)
   - [Create a Quality Gate(Rule)](#create-the-quality-gate-rule)
   - [Create a Quality Gate Condition](#create-the-quality-gate-rule-condition)
@@ -42,11 +42,15 @@ Create the Following Picklist values
 
 Navigate to the “Copado Extensions” tab, select “CopadoFlowScanner” and press the button “Generate Extension Records”.
 
-![Generate Extension Records](./assets/images/generate-extension-records.png)
+<p align="center">
+<img src="./assets/images/generate-extension-records.png" style="width: 88%;" />
+</p>
 
 ### Configure Threshold Criteria
 
- ![Function Parameter](./assets/images/function-parameter.png)
+<p align="center">
+<img src="./assets/images/function-parameter.png" />
+</p>
 
 `fail_on` - This parameter can take one of three rule severity values - `error`, `note` or `warning`. The default value of it is `error`. This parameter decides when should the Quality Gate fail.
 
@@ -62,13 +66,18 @@ By default, all rules have a severity of `error`. To customize behaviour, check 
 
 Navigate to the Quality Gate Rules tab and create a new record as follows. Note that the Type field will be populated automatically upon save. The global value set Test Tool should have a value for `Flow Scanner` as part of this package. It can be created manually if necessary.
 
-![Configure Quality Gate](./assets/images/create-quality-gate-rule.png)
+<p align="center">
+<img src="./assets/images/create-quality-gate-rule.png" style="width: 88%;" />
+</p>
 
 ### Create the Quality Gate Rule Condition
 
 Set the conditions so that it only applies to `Pipelines/Stages/Environments` with Platform = `SFDX`. This picklist value can be added manually if necessary.
 Once saved, press the “Activate” button on the Quality Gate Rule record. To run Flow Scanner only when Flows are committed, add Filter Logic as demonstrated below:
-![Quality Gate Rule Condition](./assets/images/quality-gate-rule-condition.png)
+
+<p align="center">
+<img src="./assets/images/quality-gate-rule-condition.png" style="width: 88%;" />
+</p>
 
 **You are all set.** To test the configuration, just perform a commit, and the Commit Action will call `Flow Scanner` after every commit.
 
