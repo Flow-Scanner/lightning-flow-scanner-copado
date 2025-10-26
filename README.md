@@ -32,7 +32,7 @@ A Copado Plugin for automated analysis and optimization of Salesforce Flow in Us
 * Lightning Flow Scanner Core v.2.6.0
 
 ##### Warning
-This plugin is running on Lightning Flow Scanner Core v2.6.0, which contains known vulnerabilities and is no longer supported. For more information on a fix, please see [the related pull request](https://github.com/Flow-Scanner/lightning-flow-scanner-copado/pull/2).
+This plugin is running on Lightning Flow Scanner Core [v2.6.0](https://www.npmjs.com/package/lightning-flow-scanner-core/v/2.6.0), which contains known vulnerabilities and is no longer supported. For more information on a fix, please see [the related pull request](https://github.com/Flow-Scanner/lightning-flow-scanner-copado/pull/2).
 
 ## Installation
 
