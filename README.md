@@ -19,15 +19,20 @@
   - [Create a Quality Gate(Condition)](#create-the-quality-gate-rule-condition)
 
 ## Usage
-
 A Copado Plugin for automated analysis and optimization of Salesforce Flow in User Stories. Scans metadata for 20+ issues such as hardcoded IDs, unsafe contexts, inefficient SOQL/DML operations, recursion risks, and missing fault handling. View comprehensive results directly within Copado for confident releases. For more information on the default rules and configurations, please review the [flow scanner documentation](https://flow-scanner.github.io/lightning-flow-scanner-core/). To watch a full Demo, [click here](https://www.loom.com/share/d5fc87459e714e94b72abcd5511be5d8)
+
+##### Maintainers
+* Maintained by [@abhisheksaxena7](https://github.com/abhisheksaxena7)
 
 ##### Pre-Requisites
 * Copado v21.14 or higher
 * Copado Quality Tools extension v1.42 or higher
 
 ##### Scanner Version
-* Lightning Flow Scanner Core v3.29.0
+* Lightning Flow Scanner Core v.2.6.0
+
+##### Warning
+This plugin is running on Lightning Flow Scanner Core v2.6.0, which contains known vulnerabilities and is no longer supported. For more information on a fix, please see [the related pull request](https://github.com/Flow-Scanner/lightning-flow-scanner-copado/pull/2).
 
 ## Installation
 
