@@ -23,7 +23,7 @@ RUN usermod -l func heroku && \
 
 USER func:func
 
-RUN echo y | sf plugins install lightning-flow-scanner@v3.29.0 && \
+RUN echo y | sf plugins install lightning-flow-scanner@v5.7.1 && \
     echo y | sf plugins install sfdx-git-delta@v6.16.0
 
 ENV SFDX_DISABLE_AUTOUPDATE=true \
