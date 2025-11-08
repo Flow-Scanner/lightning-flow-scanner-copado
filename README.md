@@ -6,7 +6,7 @@
 <p align="center">Scans for unsafe contexts, hardcoded IDs, and other issues to optimize your Flows.</p>
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/Flow-Scanner/lightning-flow-scanner-copado/main/assets/Copado-LFS.gif" style="width: 88%;" />
+<img src="https://raw.githubusercontent.com/Flow-Scanner/lightning-flow-scanner-copado/main/assets/Copado-LFS.gif" />
 </p>
 
 - [Usage](#usage)
