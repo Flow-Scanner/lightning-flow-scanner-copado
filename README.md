@@ -31,7 +31,7 @@ A Copado Plugin for automated analysis and optimization of Salesforce Flow in Us
 ##### Scanner Version
 * Lightning Flow Scanner Core v[4.7.0](https://www.npmjs.com/package/lightning-flow-scanner-core/v/4.7.0)
 ##### Warning
-This plugin is running on Lightning Flow Scanner Core v[4.7.0](https://www.npmjs.com/package/lightning-flow-scanner-core/v/4.7.0), which contains known vulnerabilities and is no longer supported.
+This plugin is running on Lightning Flow Scanner Core v[4.7.0](https://www.npmjs.com/package/lightning-flow-scanner-core/v/4.7.0), which is deprecated and no longer supported.
 
 ## Installation
 
